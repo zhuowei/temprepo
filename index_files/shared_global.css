@@ -1,0 +1,329 @@
+
+
+	/* Avatars */
+
+.playerAvatar {
+	padding: 3px;
+	border-radius: 3px;
+	background-color: #545454;
+}
+.playerAvatar.offline {
+
+	background: -moz-linear-gradient(top, #706c6b 5%, #4e4d4d 95%);background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#706c6b), color-stop(95%,#4e4d4d));background: -webkit-linear-gradient(top, #706c6b 5%,#4e4d4d 95%);background: -o-linear-gradient(top, #706c6b 5%,#4e4d4d 95%);background: -ms-linear-gradient(top, #706c6b 5%,#4e4d4d 95%);background: linear-gradient(to bottom, #706c6b 5%,#4e4d4d 95%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#706c6b', endColorstr='#4e4d4d',GradientType=0 );	/* IE <= 9 doesn't support rounded corners and gradient.  The gradient isn't too noticable so just disable the filter in IE9 */
+	filter: none;
+}
+.playerAvatar.ignored {
+}
+	/* #8dccff to 6da1d0 */
+.playerAvatar.online {
+	background-color: #7bafd6;
+
+	background: -moz-linear-gradient(top, #7bafd6 5%, #506d92 95%);background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#7bafd6), color-stop(95%,#506d92));background: -webkit-linear-gradient(top, #7bafd6 5%,#506d92 95%);background: -o-linear-gradient(top, #7bafd6 5%,#506d92 95%);background: -ms-linear-gradient(top, #7bafd6 5%,#506d92 95%);background: linear-gradient(to bottom, #7bafd6 5%,#506d92 95%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7bafd6', endColorstr='#506d92',GradientType=0 );	/* IE <= 9 doesn't support rounded corners and gradient.  The gradient isn't too noticable so just disable the filter in IE9 */
+	filter: none;
+}
+.playerAvatar.online img {
+	border-color: #4d5761;
+}
+	/* gradient from #b3fc55 to #8cc82c */
+.playerAvatar.in-game {
+	background-color: #9bc861;
+
+	background: -moz-linear-gradient(top, #9bc861 5%, #789e4c 95%);background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#9bc861), color-stop(95%,#789e4c));background: -webkit-linear-gradient(top, #9bc861 5%,#789e4c 95%);background: -o-linear-gradient(top, #9bc861 5%,#789e4c 95%);background: -ms-linear-gradient(top, #9bc861 5%,#789e4c 95%);background: linear-gradient(to bottom, #9bc861 5%,#789e4c 95%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9bc861', endColorstr='#789e4c',GradientType=0 );	/* IE <= 9 doesn't support rounded corners and gradient.  The gradient isn't too noticable so just disable the filter in IE9 */
+	filter: none;
+
+}
+.playerAvatar.in-game img {
+	border-color: #525a4f;
+}
+.playerAvatar {
+	width: 34px;
+	height: 34px;
+}
+.playerAvatar img {
+	width: 32px;
+	height: 32px;
+	border: 1px solid #545454;
+	border-radius: 3px;
+}
+
+.playerAvatar.medium {
+	width: 66px;
+	height: 66px;
+}
+.playerAvatar.medium img {
+	width: 64px;
+	height: 64px;
+}
+
+.playerAvatar.full {
+	width: 186px;
+	height: 186px;
+}
+.playerAvatar.full img {
+	width: 184px;
+	height: 184px;
+}
+
+.persona, a.persona, .persona a {
+	color:#898989;
+}
+
+.persona.online, a.persona.online, .persona.online a {
+	color:#86b5d9;
+}
+
+.persona.in-game, a.persona.in-game, .persona.in-game a {
+	color:#8bc53f;
+}
+
+
+
+.miniprofile_hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1200;
+}
+
+.miniprofile_hover_inner.shadow_content {
+	margin: 11px;
+}
+
+.miniprofile_content {
+	width: 302px;
+	border-radius: 3px;
+
+	color: #828282;
+	font-size: 14px;
+}
+
+.miniprofile_top {
+	border: 1px solid #333538;
+	padding: 7px 8px;
+background: -moz-linear-gradient(top, #33425a 5%, #282f3d 95%);background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#33425a), color-stop(95%,#282f3d));background: -webkit-linear-gradient(top, #33425a 5%,#282f3d 95%);background: -o-linear-gradient(top, #33425a 5%,#282f3d 95%);background: -ms-linear-gradient(top, #33425a 5%,#282f3d 95%);background: linear-gradient(to bottom, #33425a 5%,#282f3d 95%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33425a', endColorstr='#282f3d',GradientType=0 );;
+}
+
+.miniprofile_player {
+	position: relative;
+	min-height: 72px;
+}
+
+.miniprofile_player .playerAvatar {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.miniprofile_player .player_content {
+	padding-left: 80px;
+	word-wrap: break-word;
+}
+
+.miniprofile_player .playername {
+	font-size: 16px;
+}
+
+.miniprofile_favorite_badge {
+	position: relative;
+
+	margin-top: 7px;
+
+	background-color: #282f3e;
+	border: 1px solid #212121;
+	border-radius: 3px;
+	padding: 7px 4px;
+	height: 34px;
+}
+.miniprofile_favorite_badge .favorite_badge_icon {
+	position: absolute;
+	top: 7px;
+	left: 4px;
+}
+.miniprofile_favorite_badge .favorite_badge_icon img {
+	width: 34px;
+	height: 34px;
+}
+.miniprofile_favorite_badge .favorite_badge_description {
+	font-size: 12px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding-left: 44px;
+	padding-top: 3px;
+}
+
+.miniprofile_ingame {
+	border-left: 1px solid #1f1f1f;
+	border-right: 1px solid #1f1f1f;
+	border-bottom: 1px solid #1f1f1f;
+
+	padding: 8px;
+	height: 45px;
+	position: relative;
+
+background: -moz-linear-gradient(top, #525151 5%, #292827 95%);background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#525151), color-stop(95%,#292827));background: -webkit-linear-gradient(top, #525151 5%,#292827 95%);background: -o-linear-gradient(top, #525151 5%,#292827 95%);background: -ms-linear-gradient(top, #525151 5%,#292827 95%);background: linear-gradient(to bottom, #525151 5%,#292827 95%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#525151', endColorstr='#292827',GradientType=0 );}
+
+.miniprofile_ingame .game_logo {
+	position: absolute;
+	left: 8px;
+	top: 8px;
+	width: 121px;
+	height: 45px;
+}
+
+.miniprofile_ingame .game_content {
+	padding-left: 128px;
+	padding-top: 6px;
+
+	font-size: 12px;
+}
+
+.miniprofile_arrow_left, .miniprofile_arrow_right {
+	position: absolute;
+	top: 30px;
+
+	border-top: 9px solid transparent;
+	border-bottom: 9px solid transparent;
+	width: 0;
+	height: 0;
+}
+
+.miniprofile_arrow_left {
+	border-right: 8px solid #313f56;
+	left: 4px;
+}
+
+.miniprofile_arrow_right {
+	border-left: 8px solid #313f56;
+	right: 4px;
+}
+
+.miniprofile_arrow_inner {
+	position: absolute;
+	top: -6px;
+	background-repeat: no-repeat;
+	width: 7px;
+	height: 1px;
+}
+
+
+.miniprofile_arrow_left .miniprofile_arrow_inner {
+	left: 2px;
+}
+
+.miniprofile_arrow_right .miniprofile_arrow_inner {
+	right: 2px;
+}
+
+
+/*
+ * GENERIC POPUP
+ */
+
+.pulldown {
+	padding-left: 5px;
+	padding-right: 18px;
+	background-image: url( 'http://cdn.store.steampowered.com/public/shared/images/popups/btn_arrow_down_padded.png' );
+	background-position: right center;
+	background-repeat: no-repeat;
+
+	cursor: pointer;
+}
+
+span.popup_menu_pulldown_indicator {
+	display: inline-block;
+	background-image: url( 'http://cdn.store.steampowered.com/public/shared/images/popups/btn_arrow_down.png' );
+	vertical-align: middle;
+	width: 9px;
+	height: 4px;
+}
+
+
+.popup_block_new {
+	z-index: 200;
+	position: absolute;
+	box-shadow: 0 0 12px #000000;
+}
+
+.popup_block_new .popup_body {
+	border: 1px solid #82807c;
+	position: relative;
+
+	background-color: #3b3938;
+	background-image: url( 'http://cdn.store.steampowered.com/public/shared/images/popups/bg_popup.png' );
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+.popup_block_new .popup_body.popup_menu {
+}
+
+.popup_menu .popup_menu_item {
+	display: block;
+	padding: 5px 12px;
+	color: #e5e4dc;
+
+	text-transform: none;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: normal;
+}
+
+.popup_menu a.popup_menu_item {
+	text-decoration: none;
+}
+
+.popup_menu span.popup_menu_item {
+	cursor: default;
+}
+
+.popup_menu .popup_menu_item:hover, .popup_menu .popup_menu_item.focus {
+	text-decoration: none;
+	background-color: #212d3d;
+}
+
+
+
+.friendPlayerLevel {
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 16px;
+	border: solid white 2px;
+	height: 28px;
+	width: 28px;
+
+	text-align: center;
+	line-height: 28px;
+
+	cursor: default;
+}
+
+
+.friendPlayerLevel .friendPlayerLevelNum {
+	color: #9b9b9b;
+}
+
+.friendPlayerLevel.lvl_0 {
+	border: solid #9b9b9b 2px;
+}
+
+.friendPlayerLevel.lvl_10 {
+	border: solid #d96063 2px;
+}
+
+.friendPlayerLevel.lvl_20 {
+	border: solid #cecd70 2px;
+}
+
+.friendPlayerLevel.lvl_30 {
+	border: solid #7652c9 2px;
+}
+
+.friendPlayerLevel.lvl_40 {
+	border: solid #7dae3d 2px;
+}
+
+.friendPlayerLevel.lvl_50 {
+	border: solid #5491cf 2px;
+}
+
