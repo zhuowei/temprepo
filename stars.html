@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>stars</title>
+</head>
+<body style="background: black">
+<canvas id="main" width="640" height="480"></canvas>
+<script>
+"use strict";
+var WIDTH = 640;
+var HEIGHT = 480;
+var pos = [0, 0, 0, 0];
+var vel = [16, 12, 10, 8];
+var scrollerPos = WIDTH;
+var scrollerVel = 8;
+var message = "Fancy scroller effect";
+if (window.location.search != "") {
+	message = window.location.search.substring(1);
+}
+var canvas = document.getElementById("main");
+var ctx = canvas.getContext("2d");
+var starTables = genStars();
+var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
+		window.msRequestAnimationFrame;
+function genStars() {
+	var layer1 = new Array(256);
+	var layer2 = new Array(256);
+	var layer3 = new Array(256);
+	var layer4 = new Array(256);
+	for (var i = 0; i < layer1.length; i++) {
+		layer1[i] = {
+			x: Math.floor(Math.random() * WIDTH),
+			y: Math.floor(Math.random() * HEIGHT),
+			color: Math.floor(Math.random() * 0xffffff) | 0x808080
+		};
+		layer2[i] = {
+			x: Math.floor(Math.random() * WIDTH),
+			y: Math.floor(Math.random() * HEIGHT),
+			color: Math.floor(Math.random() * 0xffffff) | 0x808080
+		};
+		layer3[i] = {
+			x: Math.floor(Math.random() * WIDTH),
+			y: Math.floor(Math.random() * HEIGHT),
+			color: Math.floor(Math.random() * 0xffffff) & ~(0x808080)
+		};
+		layer4[i] = {
+			x: Math.floor(Math.random() * WIDTH),
+			y: Math.floor(Math.random() * HEIGHT),
+			color: Math.floor(Math.random() * 0xffffff) & ~(0x808080)
+		};
+	}
+	return [layer1, layer2, layer3, layer4];
+}
+
+function renderStars() {
+	ctx.fillStyle = "black";
+	ctx.fillRect(0, 0, WIDTH, HEIGHT);
+	for (var i = 3; i >= 0; --i) {
+		pos[i] += vel[i];
+		renderLayer(i);
+	}
+	if (raf) {
+		raf(renderStars);
+	} else {
+		setTimeout(renderStars, 16);
+	}
+	renderScroller();
+}
+
+function renderScroller() {
+	ctx.font = "64px monospace";
+	var letterWidth = 64;
+	var scrollerWidth = letterWidth * message.length;
+	scrollerPos = scrollerPos - scrollerVel;
+	ctx.fillStyle = "yellow";
+	if (scrollerPos < -scrollerWidth) scrollerPos = WIDTH;
+	for (var i = 0; i < message.length; i++) {
+		var letter = message.charAt(i);
+		var x = scrollerPos + (letterWidth * i);
+		var y = Math.floor(HEIGHT / 2 + 64*Math.sin(x / WIDTH * 4 * Math.PI));
+		ctx.fillText(letter, x, y);
+	}
+}
+
+function renderLayer(layerId) {
+	var layer = starTables[layerId];
+	var mypos = pos[layerId];
+	var starLength = layerId > 1? 32: 64;
+	for (var i = 0; i < layer.length; i++) {
+		var star = layer[i];
+		var x = Math.floor((star.x + mypos) % (WIDTH + starLength));
+		var y = star.y;
+		ctx.fillStyle = "rgb(" + ((star.color >> 16) & 0xff) + "," + ((star.color >> 8) & 0xff) + "," + (star.color & 0xff) + ")";
+		ctx.fillRect(x - starLength, y, starLength, 2);
+	}
+}
+renderStars();
+</script>
+</body>
+</html>
