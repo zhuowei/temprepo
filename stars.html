@@ -15,7 +15,7 @@ var scrollerPos = WIDTH;
 var scrollerVel = 8;
 var message = "Fancy scroller effect";
 if (window.location.search != "") {
-	message = window.location.search.substring(1);
+	message = decodeURIComponent(window.location.search.substring(1))
 }
 var canvas = document.getElementById("main");
 var ctx = canvas.getContext("2d");
