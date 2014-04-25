@@ -22,7 +22,7 @@ function render() {
 	ctx.lineWidth = 2;
 	for (var i = 0; i < 32; i++) {
 		ctx.beginPath();
-		var mi = (i-((t*4) % 32 / 32)); //modified index
+		var mi = i - (t % 8 / 8); //modified index
 		var radius = Math.floor((WIDTH / 2) / (mi/2 + 1));
 		var centerx = Math.floor(WIDTH / 2 + WIDTH*.25*Math.sin(mi/64*Math.PI + t/37));
 		var centery = Math.floor(HEIGHT / 2 + HEIGHT*.25*Math.sin(mi/32*Math.PI + t/17));
