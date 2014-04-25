@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tunnel</title>
+</head>
+<body style="background: black">
+<canvas id="main" width="640" height="480"></canvas>
+<script>
+"use strict";
+var WIDTH = 640;
+var HEIGHT = 480;
+var canvas = document.getElementById("main");
+var ctx = canvas.getContext("2d");
+var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
+		window.msRequestAnimationFrame;
+var t = 0;
+var ringColors = genColors();
+
+function render() {
+	ctx.fillStyle = "black";
+	ctx.fillRect(0, 0, WIDTH, HEIGHT);
+	ctx.lineWidth = 2;
+	for (var i = 0; i < 32; i++) {
+		ctx.beginPath();
+		var mi = (i-((t*4) % 32 / 32)); //modified index
+		var radius = Math.floor((WIDTH / 2) / (mi/2 + 1));
+		var centerx = Math.floor(WIDTH / 2 + WIDTH*.25*Math.sin(mi/64*Math.PI + t/37));
+		var centery = Math.floor(HEIGHT / 2 + HEIGHT*.25*Math.sin(mi/32*Math.PI + t/17));
+		ctx.arc(centerx, centery, radius, 0, 360);
+		ctx.strokeStyle = ringColors[(i + Math.floor(t / 8)) % 32];
+		ctx.stroke();
+	}
+	t++;
+	raf(render);
+}
+
+function genColors() {
+	var retval = new Array(32);
+	for (var i = 0; i < retval.length; i++) {
+		var color = Math.floor(Math.random() * 0xffffff) | 0x808080;
+		retval[i] = "rgb(" + ((color >> 16) & 0xff) + "," + ((color >> 8) & 0xff) + "," + (color & 0xff) + ")";
+	}
+	return retval;
+}
+render();
+</script>
+</body>
+</html>
