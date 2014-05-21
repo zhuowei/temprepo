@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mandelbrot</title>
+</head>
+<body>
+<canvas id="maincanvas" width="640" height="480"></canvas>
+<p>Based on <a href="http://wiki.scratch.mit.edu/wiki/Recursion_and_Fractals#Creating_the_Mandelbrot_Set">this tutorial</a></p>
+<script>
+var canvas, ctx, imagedata, imagedatadata;
+
+var WIDTH = 640;
+var HEIGHT = 480;
+
+function draw() {
+	var fracwidth = 180;
+	var fraccenterx = WIDTH / 2;
+	var fraccentery = HEIGHT / 2;
+	for (var y = 0; y < HEIGHT; y++) {
+		for (x = 0; x < WIDTH; x++) {
+			/* from http://wiki.scratch.mit.edu/wiki/Recursion_and_Fractals#Creating_the_Mandelbrot_Set */
+			var c = (x - fraccenterx) / fracwidth;
+			var ci = (y - fraccentery) / fracwidth;
+			var z = c;
+			var zi = ci;
+			var i;
+			for (i = 0; i < 20; i++) {
+				/* (z + zi)**2 = (z**2 - zi**2) + (2*z*zi)i */
+				var nz = (z*z - zi*zi) + c;
+				var nzi = (2*z*zi) + ci;
+				z = nz;
+				zi = nzi;
+				if ((z*z + zi*zi) > 2*2) {
+					break;
+				}
+			}
+			var col = 255 - (i * 12);
+			var offset = (y*WIDTH + x) * 4;
+			imagedatadata[offset++] = col;
+			imagedatadata[offset++] = col;
+			imagedatadata[offset++] = col;
+			imagedatadata[offset++] = 0xff;
+		}
+	}
+	ctx.putImageData(imagedata, 0, 0);
+}
+
+function loadHandler() {
+	canvas = document.getElementById("maincanvas");
+	ctx = canvas.getContext("2d");
+	imagedata = ctx.createImageData(WIDTH, HEIGHT);
+	imagedatadata = imagedata.data;
+	draw();
+}
+window.onload = loadHandler;
+</script>
+</body>
+</html>
