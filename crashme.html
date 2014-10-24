@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var allocated = [];
+function gobble() {
+	for (var i = 0; i < 10000000; i++) {
+		allocated.push(new Array(100000000).join("A"));
+	}
+	window.setTimeout(gobble, 20);
+}
+</script>
+</head>
+<body>
+<button onclick="gobble()">Go</button>
+</body>
+</html>
