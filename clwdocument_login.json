@@ -1,0 +1,91 @@
+{
+    "data": {
+        "login": {
+            "auth_token": "auth_token",
+            "login_attempt_id": "login_attempt_id",
+            "trusted_app_install_expired": false,
+            "step_up": null,
+            "login_account": {
+                "id": "id",
+                "name": {
+                    "legal_name": "legal_name",
+                    "display_name": "display_name"
+                },
+                "kyc_status": "APPROVED",
+                "kyc": null,
+                "phone": {
+                    "country_code": "1",
+                    "national_number": "1111111111"
+                },
+                "balance": {
+                    "available_primary_amount": {
+                        "amount": "1234",
+                        "currency": {
+                            "__typename": "FiatCurrency",
+                            "iso_code": "iso_code_fiat",
+                            "full_name": "full_name",
+                            "exponent": 1,
+                            "symbol": "symbol",
+                            "matching_stablecoin": {
+                                "iso_code": "iso_code_stablecoin",
+                                "matching_fiat_currency": {
+                                    "iso_code": "iso_code_fiat"
+                                }
+                            }
+                        },
+                        "formatted_text": {
+                            "text": "1234"
+                        }
+                    },
+                    "available_local_amount": {
+                        "amount": "1234",
+                        "currency": {
+                            "__typename": "FiatCurrency",
+                            "iso_code": "iso_code_fiat",
+                            "full_name": "full_name",
+                            "exponent": 1,
+                            "symbol": "symbol",
+                            "matching_stablecoin": {
+                                "iso_code": "iso_code_stablecoin",
+                                "matching_fiat_currency": {
+                                    "iso_code": "iso_code_fiat"
+                                }
+                            }
+                        },
+                        "formatted_text": {
+                            "text": "1234"
+                        }
+                    }
+                },
+                "account_restriction": null,
+                "local_currency": {
+                    "__typename": "FiatCurrency",
+                    "iso_code": "iso_code_fiat",
+                    "full_name": "full_name",
+                    "exponent": 1,
+                    "symbol": "symbol",
+                    "matching_stablecoin": {
+                        "iso_code": "iso_code_stablecoin",
+                        "matching_fiat_currency": {
+                            "iso_code": "iso_code_fiat"
+                        }
+                    }
+                },
+                "primary_currency": {
+                    "__typename": "FiatCurrency",
+                    "iso_code": "iso_code_fiat",
+                    "full_name": "full_name",
+                    "exponent": 1,
+                    "symbol": "symbol",
+                    "matching_stablecoin": {
+                        "iso_code": "iso_code_stablecoin",
+                        "matching_fiat_currency": {
+                            "iso_code": "iso_code_fiat"
+                        }
+                    }
+                },
+                "locale_currency_format_rule": {}
+            }
+        }
+    }
+}
